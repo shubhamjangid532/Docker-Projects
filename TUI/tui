@@ -1,0 +1,10 @@
+docker pull shubham532/tui_py:1
+[A
+# pull image from docker hub
+
+
+
+
+# launch TUI container 
+
+docker run -it shubham532/tui_py:1
