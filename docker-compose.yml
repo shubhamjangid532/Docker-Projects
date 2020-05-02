@@ -1,0 +1,32 @@
+version: "3"
+services:
+        databaseos:
+                image: mysql:5.7
+                volumes:
+                  - mysql_new_storage:/var/lib/mysql
+                restart: always
+                environment:
+                  MYSQL_ROOT_PASSWORD: rootpass
+                  MYSQL_USER: shubham
+                  MYSQL_PASSWORD: hitler
+                  MYSQL_DATABASE: wpdb
+
+
+        wordpressos:
+                image: wordpress:5.1.1-php7.3-apache
+                restart: always
+                depends_on:
+                  - databaseos
+                ports:
+                  - 8888:80
+                environment:
+                        WORDPRESS_DB_HOST: databaseos
+                        WORDPRESS_DB_USER: shubham
+                        WORDPRESS_DB_PASSWORD: hitler
+                        WORDPRESS_DB_NAME: wpdb
+                volumes:
+                  - wp_new_storage:/var/www/html
+
+volumes:
+        wp_new_storage:
+        mysql_new_storage:
