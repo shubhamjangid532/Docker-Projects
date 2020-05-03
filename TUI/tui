@@ -1,6 +1,7 @@
-docker pull shubham532/tui_py:1
-[A
 # pull image from docker hub
+docker pull shubham532/tui_py:1
+
+
 
 
 
